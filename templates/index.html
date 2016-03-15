@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ngram viewer</title>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+<div class="hero">
+  <nav class="navbar navbar-default">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Ngram Viewer</a>
+    </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">About US</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+    </nav>
+<div class="jumbotron">
+  <h1 class="mid">An Ngram Viewer for Indic Languages</h1>
+  <p class="mid">Based on Google Books Ngram Viewer</p>
+</div>
+</div>
+<div class="container">
+	<form class="mid" id="mainform">
+    <div class="col-md-7">
+    <input id = "ngram" type="text" name="ngram" class="form-control" placeholder="enter search tearm" required ></div>
+    <div class="col-md-2"><input id = "startyear" name = "startyear" class="form-control" type="text" placeholder="Start Year" ></div>
+    <div class="col-md-2">
+    <input id = "endyear" name = "endyear" class="form-control" type="text" placeholder="End Year" ></div>
+		<div class="col-md-1"><button class="btn btn-primary" type="submit">
+      send
+    </button></div>
+	</form>
+	<div id="curve_chart">
+    
+  </div>
+</div>
+  <!--<script type="text/javascript">
+    google.load("visualization", "1", {packages:["corechart"]});
+    google.setOnLoadCallback(drawChart); 
+  </script>-->
+<script src="static/js/app.js"></script>
+<!--<script type="text/javascript">
+  $(function(){
+  $('#mainform').on('submit',function(event){
+    event.preventDefault();
+    console.log("event prevented");
+    var searchTerm = $('#ngram').val();
+    var data = {
+      term : searchTerm
+    }
+    var chart_data;
+    $.post('/view', data, function(res) {
+      /*optional stuff to do after success */
+      if(res){
+        //drawChart(res);
+        //console.log(res);
+        $('#curve_chart').html(res);
+      }
+    }); 
+  });
+});
+</script>-->
+</body>
+</html>
