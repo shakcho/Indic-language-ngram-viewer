@@ -2,6 +2,7 @@
 $(function(){
 	$('#mainform').on('submit',function(event){
 		event.preventDefault();
+    console.log("Button Clicked");
 		$.ajax({
             url: '/view',
             data: $('form').serialize(),

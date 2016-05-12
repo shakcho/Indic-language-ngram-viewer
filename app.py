@@ -6,20 +6,6 @@ app = Flask(__name__)
 @app.route('/')
 def index():
 	return render_template('index.html')
-@app.route('/mpl')
-def mpl():
-	import matplotlib.pyplot as plt, mpld3
-	import numpy as np
-	fig, ax = plt.subplots()
-	np.random.seed(0)
-	x, y = np.random.normal(size=(2, 200))
-	color, size = np.random.random((2, 200))
-
-	ax.scatter(x, y, c=color, s=500 * size, alpha=0.3)
-	ax.grid(color='lightgray', alpha=0.7)
-	mpld3.save_json(fig,"data.json")
-	mpld3.save_html(fig,"data.html")
-	return mpld3.fig_to_html(fig)
 
 def read_wfile(word, year_range, wfile, tfile): 
 	import csv as csv
