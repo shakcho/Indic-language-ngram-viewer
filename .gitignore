@@ -62,8 +62,4 @@ target/
 .ipynb_checkpoints
 
 #test files
-datafiles3/all_words.csv
-datafiles3/total_counts.csv
-datafiles3/very_short.csv
-datafiles3/words_that_start_with_q.csv
-demo.py
+datafiles3/
