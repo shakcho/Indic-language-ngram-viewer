@@ -6,6 +6,11 @@
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script type="text/javascript" src="https://mpld3.github.io/js/d3.v3.min.js"></script>
+  <script type="text/javascript" src="https://mpld3.github.io/js/mpld3.v0.2.js"></script>
+  <script type="text/javascript" src="static/js/dom-to-image.js"></script>
+  <script type="text/javascript" src="static/js/FileSaver.min.js"></script>
+  <!--<script type="text/javascript" src="http://mpld3.github.io/js/mpld3.v0.1.js"></script>-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 <link rel="stylesheet" href="static/css/style.css">
 </head>
@@ -39,35 +44,14 @@
       send
     </button></div>
 	</form>
-	<div id="curve_chart">
-    
+  <div class="col-md-8">
+    <div id="curve_chart">
+      
+    </div>
+  </div>
+  <div class="col-md-4">
   </div>
 </div>
-  <!--<script type="text/javascript">
-    google.load("visualization", "1", {packages:["corechart"]});
-    google.setOnLoadCallback(drawChart); 
-  </script>-->
 <script src="static/js/app.js"></script>
-<!--<script type="text/javascript">
-  $(function(){
-  $('#mainform').on('submit',function(event){
-    event.preventDefault();
-    console.log("event prevented");
-    var searchTerm = $('#ngram').val();
-    var data = {
-      term : searchTerm
-    }
-    var chart_data;
-    $.post('/view', data, function(res) {
-      /*optional stuff to do after success */
-      if(res){
-        //drawChart(res);
-        //console.log(res);
-        $('#curve_chart').html(res);
-      }
-    }); 
-  });
-});
-</script>-->
 </body>
 </html>

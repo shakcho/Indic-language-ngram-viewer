@@ -22,3 +22,7 @@
   background-image: radial-gradient(ellipse farthest-corner at left top, #4698bb 0, #9157be 100%);
   height: 300px;
   margin-bottom: 20px; }
+
+  #curve_chart{
+    margin-top: 50px;
+  }

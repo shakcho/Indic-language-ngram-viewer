@@ -7,7 +7,7 @@ app = Flask(__name__)
 def index():
 	return render_template('index.html')
 
-def read_wfile(word, year_range, wfile, tfile): 
+def read_wfile(word, year_range, wfile, tfile):
 	import csv as csv
 	import numpy as np
 	from datetime import datetime as dt
@@ -15,12 +15,15 @@ def read_wfile(word, year_range, wfile, tfile):
 	from csv import reader
 	import operator
 	import mpld3
-	year, vol = zip(*list(reader(open('datafiles3/'+tfile))))[0:2]
+	import codecs
+	import json
+	from matplotlib import rc
+	year, vol = list(zip(*list(reader(open('datafiles3/'+tfile)))))[0:2]
 	year_range_array = range(year_range[0], year_range[1]+1)
 
 	#initialize a dictionary
 	mydata = {}
-	for r in reader(open('datafiles3/'+wfile),delimiter='\t'):
+	for r in reader(open('datafiles3/'+wfile,encoding='utf-8'),delimiter='\t'):
 		#Num times the word appears/Total number of words from all texts
 		f = float(r[2]) / float(vol[year.index(r[1])])
 
@@ -30,7 +33,7 @@ def read_wfile(word, year_range, wfile, tfile):
 			mydata[r[0]].append((int(r[1]), f))
 		elif r[0] not in mydata and r[0] in word and int(r[1]) in year_range_array:
 			mydata[r[0]] = [(int(r[1]), f)]
-	
+
 	#Dictionary has word as a key and a list of tuples as the value.
 	#This removes the list from the key/value pair
 	mydata_list = [mydata[x] for x in word]
@@ -45,12 +48,15 @@ def read_wfile(word, year_range, wfile, tfile):
 		#print x
 		#print zip(*x)
 		ax.plot(*zip(*x))
+	plt.rc('font',family='Lucida Grande')
 	plt.xlabel("Year")
 	plt.ylabel("Relative frequency")
 	plt.grid()
 	plt.legend(word)
+	plt.savefig('data.png')
 	#plt.show()
-	return mpld3.fig_to_html(fig)
+	#return mpld3.fig_to_html(fig)
+	return json.dumps(mpld3.fig_to_dict(fig))
 
 @app.route('/view',methods=['POST','GET'])
 def view():
@@ -59,12 +65,11 @@ def view():
 	#ngrams = [ str.strip(x) for x in ngrams]
 	startyear = request.form['startyear']
 	endyear = request.form['endyear']
-	#ngrams = ['horse', 'computer','Art']
 	time_range = list()
 	time_range.append(startyear)
 	time_range.append(endyear)
 	time_range = [ int(i) for i in time_range ]
-	graph = read_wfile(ngrams,time_range, 'all_words.csv', 'total_counts.csv')
+	graph = read_wfile(ngrams,time_range, 'bengali.csv', 'bengali_total.csv')
 	return graph
 
 
