@@ -54,6 +54,7 @@ def read_wfile(word, year_range, wfile, tfile):
 	plt.grid()
 	plt.legend(word)
 	plt.savefig('data.png')
+	plt.savefig('data.pdf')
 	#plt.show()
 	#return mpld3.fig_to_html(fig)
 	return json.dumps(mpld3.fig_to_dict(fig))
