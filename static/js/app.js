@@ -2,6 +2,7 @@
 $(function(){
 	$('#mainform').on('submit',function(event){
 		event.preventDefault();
+        $('#button').addClass('m-progress');
     $('#curve_chart').html('');
     console.log("Button Clicked");
 		$.ajax({
@@ -9,8 +10,9 @@ $(function(){
             data: $('form').serialize(),
             type: 'POST',
             success: function(response) {
-               // $('#curve_chart').append(response);
+                $('#button').removeClass('m-progress');
                 mpld3.draw_figure('curve_chart',response);
+                $('#download').css('visibility','visible')
             },
             dataType: "json",
             error: function(error) {

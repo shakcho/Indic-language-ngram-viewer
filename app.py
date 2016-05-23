@@ -18,12 +18,12 @@ def read_wfile(word, year_range, wfile, tfile):
 	import codecs
 	import json
 	from matplotlib import rc
-	year, vol = list(zip(*list(reader(open('datafiles3/'+tfile)))))[0:2]
+	year, vol = list(zip(*list(reader(open('datafiles/'+tfile)))))[0:2]
 	year_range_array = range(year_range[0], year_range[1]+1)
 
 	#initialize a dictionary
 	mydata = {}
-	for r in reader(open('datafiles3/'+wfile,encoding='utf-8'),delimiter='\t'):
+	for r in reader(open('datafiles/'+wfile,encoding='utf-8'),delimiter='\t'):
 		#Num times the word appears/Total number of words from all texts
 		f = float(r[2]) / float(vol[year.index(r[1])])
 
