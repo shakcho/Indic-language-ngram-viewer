@@ -23,9 +23,12 @@
   height: 300px;
   margin-bottom: 20px; }
 div.tooltip{
-  position:absolute;
-  top:170px;
-  left:170px;
+  position:relative;
+  //top:170px;
+  //left:170px;
+  margin-left: 110px;
+  width:440px;
+  margin-top: 90px;
   background: #4698bb;
   background:#85C1E9;
   border:5px solid #0369D6 ;
@@ -40,7 +43,7 @@ div.tooltip{
 
 div.tooltip::after
 {
-        top: 100%;
+        bottom: 100%;
         left: 50%;
         border: solid transparent;
         content: " ";
@@ -49,7 +52,7 @@ div.tooltip::after
         position: absolute;
         pointer-events: none;
         border-color: rgba(38, 38, 38, 0);
-        border-top-color: #0369D6;
+        border-color: transparent transparent #0369D6 transparent ;
         border-width: 13px;
         margin-left: -8px
 }

@@ -23,7 +23,7 @@ def read_wfile(word, year_range, wfile, tfile):
 
 	#initialize a dictionary
 	mydata = {}
-	for r in reader(open('datafiles/'+wfile,encoding='utf-8'),delimiter='\t'):
+	for r in reader(open('datafiles/'+wfile,encoding='utf-8'),delimiter=','):
 		#Num times the word appears/Total number of words from all texts
 		f = float(r[2]) / float(vol[year.index(r[1])])
 
@@ -54,7 +54,6 @@ def read_wfile(word, year_range, wfile, tfile):
 	plt.grid()
 	plt.legend(word)
 	plt.savefig('data.png')
-	plt.savefig('data.pdf')
 	#plt.show()
 	#return mpld3.fig_to_html(fig)
 	return json.dumps(mpld3.fig_to_dict(fig))
@@ -70,7 +69,7 @@ def view():
 	time_range.append(startyear)
 	time_range.append(endyear)
 	time_range = [ int(i) for i in time_range ]
-	graph = read_wfile(ngrams,time_range, 'bengali.csv', 'bengali_total.csv')
+	graph = read_wfile(ngrams,time_range, 'data.csv', 'total_count.csv')
 	return graph
 
 

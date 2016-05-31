@@ -62,4 +62,5 @@ target/
 .ipynb_checkpoints
 
 #test files
-/datafiles3/
+datafiles3/
+datafiles
