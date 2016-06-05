@@ -31,7 +31,14 @@
 <div class="container">
 <div class="row">
 	<form class="mid" id="mainform">
-    <div class="col-md-7"><input id = "ngram" type="text" name="ngram" class="form-control" placeholder="enter search tearm" required ></div>
+  <div class="col-md-2">
+    <select id = "langoption" class="form-control">
+    <option value="bengali">Select language</option>
+    <option value="bengali">Bengali</option>
+    <option value="hindi">Hindi</option>
+  </select>
+  </div>
+    <div class="col-md-5"><input id = "ngram" type="text" name="ngram" class="form-control" placeholder="enter search tearm" required ></div>
       <div class="col-md-2"><input id = "startyear" name = "startyear" class="form-control" type="text" placeholder="Start Year" required ></div>
       <div class="col-md-2"><input id = "endyear" name = "endyear" class="form-control" type="text" placeholder="End Year" required ></div>
       <div class="col-md-1"><button id="button" class="btn btn-primary" type="submit">send</button></div>
@@ -39,13 +46,15 @@
 </div>
 <div class="row">
   <div id="link" class="mid">
-    <div class="col-md-7">
-      <a  href="#" onClick="showhide('inlinevkb');"  id="linkid">Show virtual keyboard</a>
+  <div class="col-md-2"></div>
+    <div class="col-md-5">
+      <!--<a  href="#" onClick="showhide('inlinevkbb');"  id="linkid">Show virtual keyboard</a>-->
+        <a  href="#" onClick="checkeyboard();"  id="linkid">Show virtual keyboard</a>
     </div>
     <div class="col-md-5"></div>
   </div>
 </div>
-  <div class="tooltip" id="inlinevkb" style="display: none;">  
+  <div class="tooltip" id="inlinevkbb" style="display: none;">  
     <table class="inlinekbtable">
     <tbody>
     <tr>
@@ -153,6 +162,126 @@
     </tbody>
   </table>
 </div>
+<div class="tooltip" id="inlinevkbh" style="display: none;">  
+    <table class="inlinekbtable">
+    <tbody>
+    <tr>
+      <td  onclick="insertAtCursor('क');self.focus();" >क</td>
+      <td  onclick="insertAtCursor('ख');self.focus();" >ख</td>
+      <td  onclick="insertAtCursor('ग');self.focus();" >ग</td>
+      <td onClick="insertAtCursor('घ');self.focus();" >घ</td>
+      <td onClick="insertAtCursor('ङ');self.focus();" >ङ</td>   
+      <td  onclick="insertAtCursor('च');self.focus();" >च</td>
+      <td  onclick="insertAtCursor('छ');self.focus();" >छ</td>
+      <td  onclick="insertAtCursor('ज');self.focus();" >ज</td>
+      <td  onclick="insertAtCursor('झ');self.focus();" >झ</td>
+      <td  onclick="insertAtCursor('ञ');self.focus();" >ञ</td>
+      <td  onclick="insertAtCursor('ट');self.focus();" >ट</td>
+      <td  onclick="insertAtCursor('ठ');self.focus();" >ठ</td>
+      <td  onclick="insertAtCursor('ड');self.focus();" >ड</td>
+      <td  onclick="insertAtCursor('ढ');self.focus();" >ढ</td>
+      <td  onclick="insertAtCursor('ण');self.focus();" >ण</td>
+    </tr>
+    <tr>
+      <td  onclick="insertAtCursor('त');self.focus();" >त</td>      
+      <td  onclick="insertAtCursor('थ');self.focus();" >थ</td>
+      <td  onclick="insertAtCursor('द');self.focus();" >द</td>    
+      <td  onclick="insertAtCursor('ध');self.focus();" >ध</td>
+      <td  onclick="insertAtCursor('न');self.focus();" >न</td>
+      <td  onclick="insertAtCursor('प');self.focus();" >प</td>
+      <td  onclick="insertAtCursor('फ');self.focus();" >फ</td>
+      <td  onclick="insertAtCursor('ब');self.focus();" >ब</td>
+      <td  onclick="insertAtCursor('भ');self.focus();" >भ</td>
+      <td  onclick="insertAtCursor('म');self.focus();" >म</td>
+      <td  onclick="insertAtCursor('य');self.focus();" >य</td>
+      <td  onclick="insertAtCursor('र');self.focus();" >र</td>
+      <td  onclick="insertAtCursor('ल');self.focus();" >ल</td>
+      <td  onclick="insertAtCursor('व');self.focus();" >व</td>
+      <td  onclick="insertAtCursor('श');self.focus();" >श</td>
+    </tr>
+   <tr>
+      <td onClick="insertAtCursor('ष');self.focus();" >ष</td>
+      <td  onclick="insertAtCursor('स');self.focus();" >स</td>      
+      <td onClick="insertAtCursor('ह');self.focus();" >ह</td> 
+      <td  onclick="insertAtCursor('ड़');self.focus();" >ड़</td>
+      <td  onclick="insertAtCursor('ढ़');self.focus();" >ढ़</td>
+      <td onClick="insertAtCursor('য়');self.focus();" >য়</td>
+      <td onClick="insertAtCursor('ৎ');self.focus();" >ৎ</td>
+      <td onClick="insertAtCursor('ं');self.focus();" >ं</td>
+      <td onClick="insertAtCursor('ः');self.focus();" >ः</td>
+      <td onClick="insertAtCursor('ँ');self.focus();" >ँ</td>
+      <td onClick="insertAtCursor('\u0964');self.focus();" >।</td>
+      <td onClick="insertAtCursor('\u0965');self.focus();" >॥</td>
+      <td onClick="insertAtCursor('\u09f3');self.focus();" >৳</td>  
+      <td align="center" colspan="2"  onclick="insertAtCursor('\u09CD');insertAtCursor('র'); self.focus();" >র-ফলা‌‌‌</td>
+    </tr>     
+    <tr>
+      <td onClick="insertAtCursor('अ');self.focus();" >अ</td>
+      <td  onclick="insertAtCursor('आ');self.focus();" >आ</td>      
+      <td onClick="insertAtCursor('इ');self.focus();" >इ</td>
+      <td  onclick="insertAtCursor('ई');self.focus();" >ई</td>
+      <td  onclick="insertAtCursor('उ');self.focus();" >उ</td>
+      <td onClick="insertAtCursor('ऊ');self.focus();" >ऊ</td>
+      <td onClick="insertAtCursor('ऋ');self.focus();" >ऋ</td>
+      <td onClick="insertAtCursor('ए');self.focus();" >ए</td>
+      <td onClick="insertAtCursor('ऐ');self.focus();" >ऐ</td>
+      <td onClick="insertAtCursor('ओ');self.focus();" >ओ</td>
+      <td onClick="insertAtCursor('औ');self.focus();" >औ</td>
+      <td  >&nbsp;</td>
+      <td  >&nbsp;</td>
+      <td align="center" colspan="2" onClick="insertAtCursor('\u09CD');insertAtCursor('\u09AF');self.focus();" >য-ফলা</td>  
+    <tr>
+      <td  >&nbsp;</td>
+      <td onClick="insertAtCursor('ा');self.focus();" >ा</td>
+      <td onClick="insertAtCursor('ि');self.focus();" >ि</td>
+      <td onClick="insertAtCursor('ी');self.focus();" >ी</td>
+      <td onClick="insertAtCursor('ु');self.focus();" >ु</td>
+      <td onClick="insertAtCursor('ू');self.focus();" >ू</td>
+      <td onClick="insertAtCursor('ৃ');self.focus();" >ৃ</td>
+      <td onClick="insertAtCursor('े');self.focus();" >े</td>
+      <td onClick="insertAtCursor('ৈ');self.focus();" >ै</td>
+      <td onClick="insertAtCursor('ो');self.focus();" >ो</td> 
+      <td onClick="insertAtCursor('ौ');self.focus();" >ौ</td>
+      <td >&nbsp;</td>
+      <td >&nbsp;</td>
+      <td align="center" colspan="2" onClick="insertAtCursor('র');insertAtCursor('\u09CD');self.focus();"  >রেফ</td>
+    </tr>
+    <tr>
+      <td >&nbsp;</td>
+      <td  onclick="insertAtCursor('० ');self.focus();" >०</td>
+      <td onClick="insertAtCursor('१');self.focus();" >१</td>   
+      <td onClick="insertAtCursor('२');self.focus();" >२</td>
+      <td onClick="insertAtCursor('३');self.focus();" >३</td>
+      <td onClick="insertAtCursor('४');self.focus();" >४</td>
+      <td onClick="insertAtCursor('५');self.focus();" >५</td>
+      <td onClick="insertAtCursor('६');self.focus();" >६</td>   
+      <td onClick="insertAtCursor('७');self.focus();" >७</td>
+      <td onClick="insertAtCursor('८');self.focus();" >८</td>   
+      <td onClick="insertAtCursor('९');self.focus();" >९</td>
+      <td >&nbsp;</td>  
+      <td >&nbsp;</td>
+      <td align="center" colspan="2" onClick="insertAtCursor('\u200C');self.focus();"  title="Zero With Non Join">ZWNJ</td></tr>  
+    <tr>
+      <td  colspan="4" onClick="insertAtCursor('&#32');self.focus();" >स्पेसबार</td>    
+      <td  colspan="4" onClick="insertAtCursor('\n');self.focus();" >नई लाइन</td>
+      <td  colspan="5" onClick="insertAtCursor('्');self.focus();" >युक्त करे/हलन्त</td>
+      <td  colspan="2" onClick="insertAtCursor('\u200D');self.focus();" title="Zero With Join">ZWJ</td>
+    </tr>      
+    </tbody>
+  </table>
+</div>
+<script type="text/javascript">
+  function checkeyboard(){
+      var langugeSelect  = $( "#langoption option:selected").val();
+      console.log(langugeSelect);
+        if (langugeSelect === 'bengali'){
+            showhide('inlinevkbb');
+        }
+        else if (langugeSelect === 'hindi'){
+          showhide('inlinevkbh');
+        }
+  }
+</script>
 <script type="text/javascript"> 
  
   var activeta; //active text area, input field
@@ -269,8 +398,8 @@
   </div>
   <div class="col-md-4">
   <div id="download">
-    <input type="button" class="btn btn-primary" id="btnSave" value="Save PNG"/>
-    <input type="button" class="btn btn-primary" id="btnSave" value="Save PDF"/>
+    <a class="btn btn-primary" id="btnSave" href="static/img/data.png" download="graph.png">Save PNG<a/>
+    <!--<input type="button" class="btn btn-primary" id="btnSave" value="Save PDF"/>-->
   </div>
   </div>
 </div>

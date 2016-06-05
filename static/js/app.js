@@ -4,6 +4,7 @@ $(function(){
 		event.preventDefault();
         $('#button').addClass('m-progress');
     $('#curve_chart').html('');
+    $('#download').css('visibility','hidden');
     console.log("Button Clicked");
 		$.ajax({
             url: '/view',
@@ -17,17 +18,11 @@ $(function(){
             dataType: "json",
             error: function(error) {
                 //console.log(error);
-                $('#curve_chart').html(error.responseText);
+                $('#button').removeClass('m-progress');
+                //$('#curve_chart').html(error.responseText);
+                $('#curve_chart').html("<div class='error'><h2>Sorry!</h2><p>Till now no data for your search term or to low data points to generate the curve.<br>Stay tuned we are still in development more and more data are added on regular basis.</p><h3>Thank you for visiting us.</h3></div>");
+                
             }
         });
 	});
 });
-var fixBinary = function fixBinary (bin) {
-    var length = bin.length;
-    var buf = new ArrayBuffer(length);
-    var arr = new Uint8Array(buf);
-    for (var i = 0; i < length; i++) {
-      arr[i] = bin.charCodeAt(i);
-    }
-    return buf;
-  }

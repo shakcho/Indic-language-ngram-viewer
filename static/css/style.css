@@ -26,7 +26,7 @@ div.tooltip{
   position:relative;
   //top:170px;
   //left:170px;
-  margin-left: 110px;
+  margin-left: 200px;
   width:440px;
   margin-top: 90px;
   background: #4698bb;
@@ -159,4 +159,22 @@ a#linkid{
     -moz-animation:    ld 1s ease-in-out infinite;
     -o-animation:      ld 1s ease-in-out infinite;
     animation:         ld 1s ease-in-out infinite;
+}
+#curve_chart .error{
+  text-align: center;
+  padding-top:30px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+#curve_chart .error h2{
+  color: #2E4053;
+  font-weight: lighter;
+}
+#curve_chart .error h3{
+  color:#82E0AA;
+  font-size: 18px;
+}
+#curve_chart .error p{
+  color:#85929E;
+  font-weight: lighter;
 }
